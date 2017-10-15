@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            {{ user.name }} {{ user.surname }} </h4>
+                        <small><cite title="San Francisco, USA">Krakow, Poland <i class="glyphicon glyphicon-map-marker">
+                        </i></cite></small>
+                        <p>
+                            <i class="glyphicon glyphicon-phone"></i>{{ user.telephone }}
+                            <br />
+                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i>{{ user.address }}</p>
+                        <!-- Split button -->
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                        <table class="table table-bordered"> 
+                            <thead> 
+                                <tr> 
+                                    <th>Operations</th> 
+                                </tr> 
+                            </thead> 
+                            <tbody>
+                                <tr> 
+                                    <th style="text-align:left;">
+                                        <a href="{{ path('Users_delete', {'id': user.id} ) }}" class="btn btn-danger">Delete User</a>
+                                        <a href="{{ path('Users_edit', {'id': user.id} ) }}" class="btn btn-default">Edit User</a>
+                                    </th>
+                                </tr> 
+                            </tbody> 
+                        </table>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
+    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 21px; margin-bottom: 1em; }
+    p { margin: 0 0 1em 0; }
+    a { color: #0000F0; }
+    a:hover { text-decoration: none; }
+    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
+    #container { padding: 2em; }
+    #welcome, #status { margin-bottom: 2em; }
+    #welcome h1 span { display: block; font-size: 75%; }
+    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
+    #icon-book { display: none; }
+
+    @media (min-width: 768px) {
+        #wrapper { width: 80%; margin: 2em auto; }
+        #icon-book { display: inline-block; }
+        #status a, #next a { display: block; }
+
+        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+    }
+</style>
+{% endblock %}
